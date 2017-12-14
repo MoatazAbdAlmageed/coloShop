@@ -24,61 +24,61 @@
                         <ul class="sidebar_categories">
 
                             @foreach($categories as $category)
-                            <li><a href={!! url('/categories/'.$category->id); !!}>{{$category->title}}</a></li>
+                                <li><a href={!! url('/categories/'.$category->id); !!}>{{$category->title}}</a></li>
                             @endforeach
                             {{--<li class="active"><a href={!! url('/'); !!}><span><i class="fa fa-angle-double-right"--}}
-                                                                    {{--aria-hidden="true"></i></span>Women</a></li>--}}
+                            {{--aria-hidden="true"></i></span>Women</a></li>--}}
 
                         </ul>
                     </div>
 
                     {{--<!-- Price Range Filtering -->--}}
                     {{--<div class="sidebar_section">--}}
-                        {{--<div class="sidebar_title">--}}
-                            {{--<h5>Filter by Price</h5>--}}
-                        {{--</div>--}}
-                        {{--<p>--}}
-                            {{--<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">--}}
-                        {{--</p>--}}
-                        {{--<div id="slider-range"></div>--}}
-                        {{--<div class="filter_button"><span>filter</span></div>--}}
+                    {{--<div class="sidebar_title">--}}
+                    {{--<h5>Filter by Price</h5>--}}
+                    {{--</div>--}}
+                    {{--<p>--}}
+                    {{--<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">--}}
+                    {{--</p>--}}
+                    {{--<div id="slider-range"></div>--}}
+                    {{--<div class="filter_button"><span>filter</span></div>--}}
                     {{--</div>--}}
 
                     {{--<!-- Sizes -->--}}
                     {{--<div class="sidebar_section">--}}
-                        {{--<div class="sidebar_title">--}}
-                            {{--<h5>Sizes</h5>--}}
-                        {{--</div>--}}
-                        {{--<ul class="checkboxes">--}}
-                            {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>S</span></li>--}}
-                            {{--<li class="active"><i class="fa fa-square" aria-hidden="true"></i><span>M</span></li>--}}
-                            {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>L</span></li>--}}
-                            {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>XL</span></li>--}}
-                            {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>XXL</span></li>--}}
-                        {{--</ul>--}}
+                    {{--<div class="sidebar_title">--}}
+                    {{--<h5>Sizes</h5>--}}
+                    {{--</div>--}}
+                    {{--<ul class="checkboxes">--}}
+                    {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>S</span></li>--}}
+                    {{--<li class="active"><i class="fa fa-square" aria-hidden="true"></i><span>M</span></li>--}}
+                    {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>L</span></li>--}}
+                    {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>XL</span></li>--}}
+                    {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>XXL</span></li>--}}
+                    {{--</ul>--}}
                     {{--</div>--}}
 
                     {{--<!-- Color -->--}}
                     {{--<div class="sidebar_section">--}}
-                        {{--<div class="sidebar_title">--}}
-                            {{--<h5>Color</h5>--}}
-                        {{--</div>--}}
-                        {{--<ul class="checkboxes">--}}
-                            {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>Black</span></li>--}}
-                            {{--<li class="active"><i class="fa fa-square" aria-hidden="true"></i><span>Pink</span></li>--}}
-                            {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>White</span></li>--}}
-                            {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>Blue</span></li>--}}
-                            {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>Orange</span></li>--}}
-                            {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>White</span></li>--}}
-                            {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>Blue</span></li>--}}
-                            {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>Orange</span></li>--}}
-                            {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>White</span></li>--}}
-                            {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>Blue</span></li>--}}
-                            {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>Orange</span></li>--}}
-                        {{--</ul>--}}
-                        {{--<div class="show_more">--}}
-                            {{--<span><span>+</span>Show More</span>--}}
-                        {{--</div>--}}
+                    {{--<div class="sidebar_title">--}}
+                    {{--<h5>Color</h5>--}}
+                    {{--</div>--}}
+                    {{--<ul class="checkboxes">--}}
+                    {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>Black</span></li>--}}
+                    {{--<li class="active"><i class="fa fa-square" aria-hidden="true"></i><span>Pink</span></li>--}}
+                    {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>White</span></li>--}}
+                    {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>Blue</span></li>--}}
+                    {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>Orange</span></li>--}}
+                    {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>White</span></li>--}}
+                    {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>Blue</span></li>--}}
+                    {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>Orange</span></li>--}}
+                    {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>White</span></li>--}}
+                    {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>Blue</span></li>--}}
+                    {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>Orange</span></li>--}}
+                    {{--</ul>--}}
+                    {{--<div class="show_more">--}}
+                    {{--<span><span>+</span>Show More</span>--}}
+                    {{--</div>--}}
                     {{--</div>--}}
 
                 </div>
@@ -150,19 +150,19 @@
                                                 </div>
                                                 <div class="favorite favorite_left"></div>
                                                 @if ($product->type_id == 2)
-                                                <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                                                    <span>-${{$product->price *($product->discount/100)}}</span></div>
+                                                    <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
+                                                        <span>-${{$product->price *($product->discount/100)}}</span></div>
                                                 @endif
                                                 <div class="product_info">
                                                     <h6 class="product_name"><a href="single.html">{{$product->title}}</a></h6>
                                                     @if ($product->type_id == 2)
-@php
-    $price = $product->price - ($product->price *($product->discount/100));
-@endphp
+                                                        @php
+                                                            $price = $product->price - ($product->price *($product->discount/100));
+                                                        @endphp
 
                                                         <div class="product_price">{{ $price  }}<span>{{$product->price}}</span></div>
 
-                                                        @else
+                                                    @else
                                                         <div class="product_price">{{ $product->price  }}</div>
 
                                                     @endif
@@ -178,33 +178,33 @@
                                 <!-- Product Sorting -->
 
                                 {{--<div class="product_sorting_container product_sorting_container_bottom clearfix">--}}
-                                    {{--<ul class="product_sorting">--}}
-                                        {{--<li>--}}
-                                            {{--<span>Show:</span>--}}
-                                            {{--<span class="num_sorting_text">04</span>--}}
-                                            {{--<i class="fa fa-angle-down"></i>--}}
-                                            {{--<ul class="sorting_num">--}}
-                                                {{--<li class="num_sorting_btn"><span>01</span></li>--}}
-                                                {{--<li class="num_sorting_btn"><span>02</span></li>--}}
-                                                {{--<li class="num_sorting_btn"><span>03</span></li>--}}
-                                                {{--<li class="num_sorting_btn"><span>04</span></li>--}}
-                                            {{--</ul>--}}
-                                        {{--</li>--}}
-                                    {{--</ul>--}}
-                                    {{--<span class="showing_results">Showing 1–3 of 12 results</span>--}}
-                                    {{--<div class="pages d-flex flex-row align-items-center">--}}
-                                        {{--<div class="page_current">--}}
-                                            {{--<span>1</span>--}}
-                                            {{--<ul class="page_selection">--}}
-                                                {{--<li><a href={!! url('/'); !!}>1</a></li>--}}
-                                                {{--<li><a href={!! url('/'); !!}>2</a></li>--}}
-                                                {{--<li><a href={!! url('/'); !!}>3</a></li>--}}
-                                            {{--</ul>--}}
-                                        {{--</div>--}}
-                                        {{--<div class="page_total"><span>of</span> 3</div>--}}
-                                        {{--<div id="next_page_1" class="page_next"><a href={!! url('/'); !!}><i--}}
-                                                        {{--class="fa fa-long-arrow-right" aria-hidden="true"></i></a></div>--}}
-                                    {{--</div>--}}
+                                {{--<ul class="product_sorting">--}}
+                                {{--<li>--}}
+                                {{--<span>Show:</span>--}}
+                                {{--<span class="num_sorting_text">04</span>--}}
+                                {{--<i class="fa fa-angle-down"></i>--}}
+                                {{--<ul class="sorting_num">--}}
+                                {{--<li class="num_sorting_btn"><span>01</span></li>--}}
+                                {{--<li class="num_sorting_btn"><span>02</span></li>--}}
+                                {{--<li class="num_sorting_btn"><span>03</span></li>--}}
+                                {{--<li class="num_sorting_btn"><span>04</span></li>--}}
+                                {{--</ul>--}}
+                                {{--</li>--}}
+                                {{--</ul>--}}
+                                {{--<span class="showing_results">Showing 1–3 of 12 results</span>--}}
+                                {{--<div class="pages d-flex flex-row align-items-center">--}}
+                                {{--<div class="page_current">--}}
+                                {{--<span>1</span>--}}
+                                {{--<ul class="page_selection">--}}
+                                {{--<li><a href={!! url('/'); !!}>1</a></li>--}}
+                                {{--<li><a href={!! url('/'); !!}>2</a></li>--}}
+                                {{--<li><a href={!! url('/'); !!}>3</a></li>--}}
+                                {{--</ul>--}}
+                                {{--</div>--}}
+                                {{--<div class="page_total"><span>of</span> 3</div>--}}
+                                {{--<div id="next_page_1" class="page_next"><a href={!! url('/'); !!}><i--}}
+                                {{--class="fa fa-long-arrow-right" aria-hidden="true"></i></a></div>--}}
+                                {{--</div>--}}
 
                                 {{--</div>--}}
 

@@ -58,18 +58,12 @@ class ProductController extends Controller
 	public function category($slug)
 	{
 		$categories = Category::all();
-
-		//get cat_id
+dd($categories);
+		/* get cat_id */
 		$cat = Category::where('slug',$slug)->first();
 
 		$products = Product::where('category_id',$cat->id)->get();
-//		dd($products);
-//		$products = DB::table('products')
-//		           ->join('categories', 'categories.id', '=', 'products.category_id')
-//			->select('products.*')
 
-//			->get();
-//		dd($products);
 		return view('products.index',compact('products','categories'));
 	}
 

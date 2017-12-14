@@ -24,7 +24,7 @@
                         <ul class="sidebar_categories">
 
                             @foreach($categories as $category)
-                            <li><a href={!! url('/categories/'.$category->id); !!}>{{$category->title}}</a></li>
+                                <li><a href={!! url('/categories/'.$category->id); !!}>{{$category->title}}</a></li>
                             @endforeach
                             {{--<li class="active"><a href={!! url('/'); !!}><span><i class="fa fa-angle-double-right"--}}
                                                                     {{--aria-hidden="true"></i></span>Women</a></li>--}}
@@ -141,37 +141,7 @@
 
                                 <div class="product-grid">
 
-                                    @foreach($products as $product)
 
-                                        <div class="product-item men">
-                                            <div class="product discount product_filter">
-                                                <div class="product_image">
-                                                    <img src="{!! asset('images/products/'.$product->picture) !!}" alt="">
-                                                </div>
-                                                <div class="favorite favorite_left"></div>
-                                                @if ($product->type_id == 2)
-                                                <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                                                    <span>-${{$product->price *($product->discount/100)}}</span></div>
-                                                @endif
-                                                <div class="product_info">
-                                                    <h6 class="product_name"><a href="single.html">{{$product->title}}</a></h6>
-                                                    @if ($product->type_id == 2)
-@php
-    $price = $product->price - ($product->price *($product->discount/100));
-@endphp
-
-                                                        <div class="product_price">{{ $price  }}<span>{{$product->price}}</span></div>
-
-                                                        @else
-                                                        <div class="product_price">{{ $product->price  }}</div>
-
-                                                    @endif
-
-                                                </div>
-                                            </div>
-                                            <div class="red_button add_to_cart_button"><a href={!! url('/'); !!}>add to cart</a></div>
-                                        </div>
-                                    @endforeach
 
                                 </div>
 

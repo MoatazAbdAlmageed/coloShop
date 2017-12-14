@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Type;
+use App\Product;
 class TypeController extends Controller
 {
     /**
@@ -13,8 +14,14 @@ class TypeController extends Controller
      */
     public function index()
     {
+
+	    $product = Product::find(2);
+	    dd($product->type);
+
 	    $items = Type::all();
 	    return view('types.index',compact('items'));
+
+
     }
 
     /**

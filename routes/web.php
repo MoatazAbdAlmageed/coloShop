@@ -16,13 +16,8 @@ Route::get('/', function () {
 });
 Route::get('users','UserController@index');
 Route::resource('products','ProductController');
-Route::get('products/{slug}','ProductController@category');
-Route::get('types','TypeController@index');
+//Route::get('products/{slug}','ProductController@category');
 
 
-
-
-
-
-
-
+Route::resource('categories','CategoryController');
+Route::resource('types','TypeController');

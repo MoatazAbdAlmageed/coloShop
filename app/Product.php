@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-	public $table = 'Product';
+	public $table = 'products';
 
 	public $fillable = [
 		'title',

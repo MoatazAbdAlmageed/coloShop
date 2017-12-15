@@ -46,6 +46,12 @@
 
 
 
+            <div class="form-group {{ $errors->has('type') ? 'has-error' : '' }}">
+                {!! Form::label('Product Type:') !!}
+                {{ Form::select('type_id', ['1', '2', '3']) }}
+                <span class="text-danger">{{ $errors->first('type_id') }}</span>
+            </div>
+
 
             <div class="form-group {{ $errors->has('picture') ? 'has-error' : '' }}">
                 {!! Form::label('InStock:') !!}

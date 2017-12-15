@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
-use DB;
-use App\Order;
-use Illuminate\Http\Request;
 use Alert;
+use App\Category;
+use App\Order;
+use DB;
+use Illuminate\Http\Request;
 
 class OrderController extends Controller {
 
@@ -24,6 +24,7 @@ class OrderController extends Controller {
 		               ->where( 'order_type_id', 1 )
 		               ->get();
 
+
 		$products = collect();
 
 		// get all products
@@ -32,23 +33,39 @@ class OrderController extends Controller {
 			$products->push( $products_collection );
 		}
 
+
+		$wish_list_ = Order::where( 'user_id', 1 )
+		                   ->where( 'order_type_id', 2 )
+		                   ->get();
+
+		$wish_list_products = collect();
+
+		// get all products
+		foreach ( $wish_list_ as $order ) {
+			$products_collection = $order->products()->get();
+			$wish_list_products->push( $products_collection );
+		}
+
+//		dd( $wish_list_products );
+
+
 		$total_price = 0;
+
 		foreach ( $products as $product ) {
 			$product = $product[0];
-			if ($product->type_id == 2) {
-				$total_price +=  $product->price - ($product->price *($product->discount/100));
-			}
-			else    {
+			if ( $product->type_id == 2 ) {
+				$total_price += $product->price - ( $product->price * ( $product->discount / 100 ) );
+			} else {
 
-				$total_price +=$product->price;
+				$total_price += $product->price;
 			}
 
 		}
 
-		if ( count($products) ){
-			return view( 'cart.index', compact( 'products','total_price', 'categories' ) );
-		}
-		else    {
+		// if  products view cart
+		if ( count( $products ) ) {
+			return view( 'cart.index', compact( 'products', 'total_price', 'wish_list_products', 'categories' ) );
+		} else {
 
 			return redirect()->route( 'products.index' );
 		}
@@ -133,18 +150,16 @@ class OrderController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 
-	public function empty_cart(  ) {
+	public function empty_cart() {
 //		dd('empty_cart');
-		DB::table('orders')->delete();
-		Alert::message('Robots are working!');
+		DB::table( 'orders' )->delete();
+		Alert::message( 'Robots are working!' );
 		//alert()->success('You have been logged out.', 'Good bye!');
 
 //		Order::delete();
-	return redirect()->route( 'orders.index' );
+		return redirect()->route( 'orders.index' );
 
 	}
-
-
 
 
 }

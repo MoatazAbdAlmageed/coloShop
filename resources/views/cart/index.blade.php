@@ -211,6 +211,64 @@
 
 
     </div>
+    <hr>
+
+    <div class="wish-list">
+        <div class="container">
+            <div class="row">
+
+                <h3> Wish List </h3>
+            </div>
+            <div class="row">
+                <div class="product-grid">
+
+                    @foreach($wish_list_products as $product)
+                        @php
+                            $product = $product[0];
+                        @endphp
+                        <div class="product-item men">
+                            <div class="product discount product_filter">
+                                <div class="product_image">
+                                    <a href={!! url('/products/'.$product->id); !!}>
+                                        <img src="{!! asset('images/products/'.$product->picture) !!}"
+                                             alt="">
+                                    </a>
+                                </div>
+                                <div class="favorite favorite_left"></div>
+                                @if ($product->type_id == 2)
+                                    <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
+                                        <span>-${{$product->price *($product->discount/100)}}</span>
+                                    </div>
+                                @endif
+                                <div class="product_info">
+                                    <h6 class="product_name"><a
+                                                href={!! url('/products/'.$product->id); !!}>{{$product->title}}</a>
+                                    </h6>
+                                    @if ($product->type_id == 2)
+                                        @php
+                                            $price = $product->price - ($product->price *($product->discount/100));
+                                        @endphp
+
+                                        <div class="product_price">{{ $price  }}
+                                            <span>{{$product->price}}</span></div>
+
+                                    @else
+                                        <div class="product_price">{{ $product->price  }}</div>
+
+                                    @endif
+
+                                </div>
+                            </div>
+                            <div class="red_button add_to_cart_button"><a href={!! url('add_to_cart/'.$product->id); !!}>add to cart</a></div>
+                        </div>
+                    @endforeach
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- Benefit -->
     <div class="benefit">
         <div class="container">

@@ -63,11 +63,12 @@ class ProductController extends Controller {
 		$product->picture     = $request->picture;
 		$product->color       = $request->color;
 		$product->category_id = 1; //todo
-		$product->type_id     = 1;
+		$product->type_id     = $request->type_id;
 		$product->discount    = 0;
 		$product->InStock     = $request->InStock;
 		$product->save();
 		$products = Product::all();
+
 		return view( 'products.index', compact( 'products', 'categories' ) );
 	}
 
@@ -153,6 +154,39 @@ class ProductController extends Controller {
 
 
 	}
+
+	/**
+	 * Add product to cart
+	 *
+	 * @param  int $id
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function add_to_wish_list( $id ) {
+
+
+//		dd($id);
+		$order = new Order( [
+			'user_id'       => 1,
+			'product_id'    => $id,
+			'order_type_id' => 2,
+
+		] );
+
+		$order->save();
+
+
+//		remove from Order
+
+		$order = Order::where( 'product_id', $id )->get();
+
+		Order::destroy( $order[0]->id );
+
+		return redirect()->route( 'products.index' );
+
+
+	}
+
 
 	/**
 	 * Remove product from cart

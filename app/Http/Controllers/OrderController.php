@@ -21,6 +21,8 @@ class OrderController extends Controller
     {
 	    $categories = Category::all();
 	    $orders = Order::all();
+
+
 	    return view('orders.index',compact('orders','categories'));
     }
 
@@ -53,7 +55,10 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+	    $categories = Category::all();
+	    $order = Order::find($id);
+	   $products = $order->products ;
+	    return view('products.index',compact('products','categories'));
     }
 
     /**

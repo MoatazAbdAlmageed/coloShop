@@ -140,9 +140,13 @@
                                 <!-- Product Grid -->
 
                                 <div class="product-grid">
-                                    @foreach($orders as $order)
-                                     {{$order}}
-                                    @endforeach
+                                    <ul>
+
+                                        @foreach($orders as $order)
+                                      <li>    <a href={!! url('/orders/'.$order->id); !!}  > {{$order->created_at}} </a></a> </li>
+                                        @endforeach
+                                    </ul>
+
                                 </div>
 
                                 <!-- Product Sorting -->

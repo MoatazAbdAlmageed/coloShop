@@ -27,3 +27,4 @@ Route::resource('users','UserController');
 
 
 Route::get('add_to_cart/{id}','ProductController@add_to_cart');
+Route::get('remove_product_from_cart/{id}','ProductController@remove_product_from_cart');

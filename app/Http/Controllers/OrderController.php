@@ -21,10 +21,31 @@ class OrderController extends Controller
     public function index()
     {
 	    $categories = Category::all();
-	    $orders = Order::all();
+	    $orders = Order::where('user_id',1)
+	                   ->where('order_type_id',1)
+	                   ->get();
+
+	    $products = collect();
+	    foreach ($orders as $order){
+		    $comments_collection = $order->products()->get();
+	    $products->push($comments_collection);
+//	 array_push($products,$comments_collection)  ;
+    }
 
 
-	    return view('orders.index',compact('orders','categories'));
+//dd($products);
+	    return view('cart.index',compact('products','categories'));
+
+
+
+
+
+
+
+//	    $categories = Category::all();
+//	    $order = Order::find($id);
+//	    $products = $order->products ;
+//	    return view('products.index',compact('products','categories'));
     }
 
     /**

@@ -99,7 +99,7 @@
                         <nav class="navbar">
                             <ul class="navbar_menu">
                                 <li><a href="{!! url('/products'); !!}">Products</a></li>
-                                <li><a href="{!! url('/orders'); !!}">Orders</a></li>
+                                {{--<li><a href="{!! url('/orders'); !!}">Orders</a></li>--}}
 
 
                             </ul>

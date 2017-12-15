@@ -15,8 +15,9 @@ class Controller extends BaseController {
 
 
 	public function __construct() {
-
-		$orders_count = Order::count();
+//dd(Order::find(1));
+		$orders_count = Order::where('order_type_id',1)->get()->count();
+//		dd($orders_count);
 //Laravel 5 - global Blade view variable available in all templates - ExceptionsHub
 		View::share( 'orders_count', $orders_count );
 	}

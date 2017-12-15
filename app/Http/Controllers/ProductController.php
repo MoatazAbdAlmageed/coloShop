@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Category;
-use App\Product;
 use App\Order;
+use App\Product;
 use DB;
 use Illuminate\Http\Request;
 
@@ -111,16 +111,35 @@ class ProductController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function add_to_cart( $id ) {
-	$order = new Order([
-		'user_id'=>1,
-		'product_id'=>$id,
-		'order_type_id'=>1,
+		$order = new Order( [
+			'user_id'       => 1,
+			'product_id'    => $id,
+			'order_type_id' => 1,
 
-	]);
+		] );
 
 		$order->save();
 
-		return redirect()->route('products.index');
+		return redirect()->route( 'products.index' );
+
+
+	}
+
+	/**
+	 * Remove product from cart
+	 *
+	 * @param  int $id
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function remove_product_from_cart( $id ) {
+
+		Order::where( 'product_id', $id )
+		     ->where( 'user_id', 1 )
+		     ->delete();
+
+
+		return redirect()->route( 'products.index' );
 
 
 	}

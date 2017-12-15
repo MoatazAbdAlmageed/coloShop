@@ -2,45 +2,62 @@
 @section('content')
     <div class="container">
         <div class="row">
-            {{--<form action="post">--}}
-                {{--<div class="newsletter_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-lg-end justify-content-center">--}}
-                    {{--<input id="newsletter_email" type="email" placeholder="Your email" required="required"--}}
-                           {{--data-error="Valid email is required.">--}}
-                    {{--<button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_300"--}}
-                            {{--value="Submit">subscribe--}}
-                    {{--</button>--}}
-                {{--</div>--}}
-            {{--</form>--}}
-
-
-
-
-
-
-
-
             {!! Form::open(['route'=>'products.store']) !!}
 
-            <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
-                {!! Form::label('Name:') !!}
-                {!! Form::text('name', old('name'), ['class'=>'form-control', 'placeholder'=>'Enter Name']) !!}
-                <span class="text-danger">{{ $errors->first('name') }}</span>
+            <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
+                {!! Form::label('Title:') !!}
+                {!! Form::text('title', old('title'), ['class'=>'form-control', 'placeholder'=>'Enter title']) !!}
+                <span class="text-danger">{{ $errors->first('title') }}</span>
             </div>
 
-            <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
-                {!! Form::label('Email:') !!}
-                {!! Form::text('email', old('email'), ['class'=>'form-control', 'placeholder'=>'Enter Email']) !!}
-                <span class="text-danger">{{ $errors->first('email') }}</span>
+
+
+
+            <div class="form-group {{ $errors->has('description') ? 'has-error' : '' }}">
+                {!! Form::label('description:') !!}
+                {!! Form::textarea('description', old('description'), ['class'=>'form-control', 'placeholder'=>'Enter description']) !!}
+                <span class="text-danger">{{ $errors->first('description') }}</span>
             </div>
 
-            <div class="form-group {{ $errors->has('message') ? 'has-error' : '' }}">
-                {!! Form::label('Message:') !!}
-                {!! Form::textarea('message', old('message'), ['class'=>'form-control', 'placeholder'=>'Enter Message']) !!}
-                <span class="text-danger">{{ $errors->first('message') }}</span>
+
+
+
+            <div class="form-group {{ $errors->has('price') ? 'has-error' : '' }}">
+                {!! Form::label('price:') !!}
+                {!! Form::text('price', old('price'), ['class'=>'form-control', 'placeholder'=>'Enter price']) !!}
+                <span class="text-danger">{{ $errors->first('price') }}</span>
             </div>
+
+
+
+            <div class="form-group {{ $errors->has('color') ? 'has-error' : '' }}">
+                {!! Form::label('color:') !!}
+                {!! Form::text('color', old('color'), ['class'=>'form-control', 'placeholder'=>'Enter color']) !!}
+                <span class="text-danger">{{ $errors->first('color') }}</span>
+            </div>
+            
+
+            <div class="form-group {{ $errors->has('picture') ? 'has-error' : '' }}">
+                {!! Form::label('picture:') !!}
+                {!! Form::text('picture', old('picture'), ['class'=>'form-control', 'placeholder'=>'Enter picture']) !!}
+                <span class="text-danger">{{ $errors->first('picture') }}</span>
+            </div>
+
+
+
+
+
+            <div class="form-group {{ $errors->has('picture') ? 'has-error' : '' }}">
+                {!! Form::label('InStock:') !!}
+                {{ Form::checkbox('InStock', 1, true) }}
+                <span class="text-danger">{{ $errors->first('InStock') }}</span>
+            </div>
+
+
+
 
             <div class="form-group">
-                <button class="btn btn-success">Add Product</button>
+                <button type="submit" class="btn btn-success">Add</button>
             </div>
 
             {!! Form::close() !!}

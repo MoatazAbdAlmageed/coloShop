@@ -18,11 +18,12 @@ class ProductController extends Controller {
 	 */
 	public function index() {
 		$categories = Category::all();
-		$products = 	DB::table('products')
-			->leftjoin('orders', 'orders.product_id', '=', 'products.id')
-			->select('products.*')
-			->where('orders.product_id',null)
-			->get();
+		$products   = DB::table( 'products' )
+		                ->leftjoin( 'orders', 'orders.product_id', '=', 'products.id' )
+		                ->select( 'products.*' )
+		                ->where( 'orders.product_id', null )
+		                ->get();
+
 		return view( 'products.index', compact( 'products', 'categories' ) );
 	}
 
@@ -43,7 +44,31 @@ class ProductController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function store( Request $request ) {
-		//
+
+//validate
+//		$validatedData = $request->validate( [
+//			'title'       => 'required',
+//			'description' => 'required',
+//		] );
+
+		if ( $request->InStock == null ) {
+			$request->InStock = false;
+
+		}
+//		new
+		$product              = new Product();
+		$product->title       = $request->title;
+		$product->description = $request->description;
+		$product->price       = $request->price;
+		$product->picture     = $request->picture;
+		$product->color       = $request->color;
+		$product->category_id = 1; //todo
+		$product->type_id     = 1;
+		$product->discount    = 0;
+		$product->InStock     = $request->InStock;
+		$product->save();
+		$products = Product::all();
+		return view( 'products.index', compact( 'products', 'categories' ) );
 	}
 
 	/**

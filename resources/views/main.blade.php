@@ -65,7 +65,7 @@
                                         <i class="fa fa-angle-down"></i>
                                     </a>
                                     <ul class="language_selection">
-                                     <li>   <a href={!! url('/type/create	'); !!}>Add Product Type </a></li>
+                                     <li>   <a href={!! url('/types/create	'); !!}>Add Product Type </a></li>
                                      <li>   <a href={!! url('/products/create	'); !!}>Add Product </a></li>
                                     </ul>
                                 </li>

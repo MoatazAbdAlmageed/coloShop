@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\Category;
+use App\Product;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -14,11 +16,16 @@ class Controller extends BaseController {
 
 
 	public function __construct() {
-//dd(Order::find(1));
+
 		$orders_count = Order::where( 'order_type_id', 1 )->get()->count();
-//		dd($orders_count);
+		$categories = Category::all();
+		$products = Product::all();
+
+
 //Laravel 5 - global Blade view variable available in all templates - ExceptionsHub
 		View::share( 'orders_count', $orders_count );
+		View::share( 'categories', $categories );
+		View::share( 'products', $products );
 	}
 
 }

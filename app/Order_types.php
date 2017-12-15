@@ -4,9 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Type extends Model
+class Order_types extends Model
 {
 
+
+	protected $table = 'order_types';
 
 
 	public $fillable = [
@@ -15,10 +17,4 @@ class Type extends Model
 	]
 	;
 
-
-
-	public function product()
-	{
-		return $this->hasMany('App\Products');
-	}
 }

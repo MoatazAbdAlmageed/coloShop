@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use DB;
 use App\Order;
 use Illuminate\Http\Request;
+use Alert;
 
 class OrderController extends Controller {
 
@@ -121,4 +123,28 @@ class OrderController extends Controller {
 	public function destroy( $id ) {
 		//
 	}
+
+
+	/**
+	 * Remove All rows
+	 *
+	 * @param  int $id
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+
+	public function empty_cart(  ) {
+//		dd('empty_cart');
+		DB::table('orders')->delete();
+		Alert::message('Robots are working!');
+		//alert()->success('You have been logged out.', 'Good bye!');
+
+//		Order::delete();
+	return redirect()->route( 'orders.index' );
+
+	}
+
+
+
+
 }

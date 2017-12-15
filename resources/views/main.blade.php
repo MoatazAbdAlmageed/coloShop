@@ -260,7 +260,8 @@
 <script src="{!! asset('plugins/jquery-ui-1.12.1.custom/jquery-ui.js') !!}"></script>
 <script src="{!! asset('js/categories_custom.js') !!}"></script>
 <script src="{!! asset('js/single_custom.js') !!}"></script>
-
+<script src="{!! asset('js/single_custom.js') !!}"></script>
+<script src="{!! asset('node_modules/sweetalert/dist/sweetalert.min.js') !!}"></script>
 
 
 </body>

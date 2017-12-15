@@ -160,7 +160,9 @@ class OrderController extends Controller {
 
 	public function empty_cart() {
 //		dd('empty_cart');
-		DB::table( 'orders' )->delete();
+		DB::table( 'orders' )
+		  ->where('order_type_id', '=', 1)
+		  ->delete();
 		Alert::message( 'Robots are working!' );
 		//alert()->success('You have been logged out.', 'Good bye!');
 

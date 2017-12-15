@@ -48,7 +48,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+	    $user = User::find(1);
+dd($user->products);
+
     }
 
     /**

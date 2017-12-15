@@ -53,10 +53,8 @@ class ProductController extends Controller
     public function show($id)
     {
 	    $categories = Category::all();
-	    $category = Category::find($id);
-	    $products = $category->products->all();
-	    $products = $category->products;
-	    return view('products.single',compact('products','categories'));
+	    $product = Product::find($id);
+	    return view('products.single',compact('product','categories'));
     }
 
 	public function category($slug)

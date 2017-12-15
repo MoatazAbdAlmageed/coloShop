@@ -41,8 +41,8 @@
             <div class="col-lg-5">
                 <div class="product_details">
                     <div class="product_details_title">
-                        <h2>Pocket cotton sweatshirt</h2>
-                        <p>Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut...</p>
+                        <h2>{{$product->title}}</h2>
+                        <p>{{$product->description}}</p>
                     </div>
                     <div class="free_delivery d-flex flex-row align-items-center justify-content-center">
                         <span class="ti-truck"></span><span>free delivery</span>

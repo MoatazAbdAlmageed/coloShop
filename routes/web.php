@@ -14,7 +14,7 @@
 Route::get('/', function () {
 	return view('home');
 });
-Route::get('users','UserController@index');
+
 
 
 
@@ -22,3 +22,4 @@ Route::resource('products','ProductController');
 Route::resource('orders','OrderController');
 Route::resource('categories','CategoryController');
 Route::resource('types','TypeController');
+Route::resource('users','UserController');

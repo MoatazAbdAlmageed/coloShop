@@ -23,3 +23,7 @@ Route::resource('orders','OrderController');
 Route::resource('categories','CategoryController');
 Route::resource('types','TypeController');
 Route::resource('users','UserController');
+
+
+
+//Route::get('add_to_cart/{id}','ProductController@add_to_cart');

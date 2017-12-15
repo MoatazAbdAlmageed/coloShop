@@ -7,6 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
 
+	public $table = 'products';
+
+	public $fillable = [
+		'title',
+		'description',
+		'price',
+		'picture',
+		'color',
+		'InStock',
+		'category_id',
+		'type_id',
+		'discount'
+	]
+	;
+
+
 	public function category()
 	{
 		return $this->belongsTo('App\Category');
@@ -24,18 +40,5 @@ class Product extends Model
 		return $this->belongsTo('App\Type');
 	}
 
-	public $table = 'products';
 
-	public $fillable = [
-		'title',
-		'description',
-		'price',
-		'picture',
-		'color',
-		'InStock',
-		'category_id',
-		'type_id',
-		'discount'
-	]
-	;
 }

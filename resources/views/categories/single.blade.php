@@ -141,12 +141,14 @@
 
                                 <div class="product-grid">
 
-                                    @forelse($products as $product)
+                                    @foreach($products as $product)
 
                                         <div class="product-item men">
                                             <div class="product discount product_filter">
                                                 <div class="product_image">
-                                                    <img src="{!! asset('images/products/'.$product->picture) !!}" alt="">
+                                                    <a href={!! url('/products/'.$product->id); !!}>
+                                                        <img src="{!! asset('images/products/'.$product->picture) !!}" alt="">
+                                                    </a>
                                                 </div>
                                                 <div class="favorite favorite_left"></div>
                                                 @if ($product->type_id == 2)
@@ -154,7 +156,7 @@
                                                         <span>-${{$product->price *($product->discount/100)}}</span></div>
                                                 @endif
                                                 <div class="product_info">
-                                                    <h6 class="product_name"><a href="single.html">{{$product->title}}</a></h6>
+                                                    <h6 class="product_name"><a href={!! url('/products/'.$product->id); !!}>{{$product->title}}</a></h6>
                                                     @if ($product->type_id == 2)
                                                         @php
                                                             $price = $product->price - ($product->price *($product->discount/100));
@@ -171,10 +173,7 @@
                                             </div>
                                             <div class="red_button add_to_cart_button"><a href={!! url('/'); !!}>add to cart</a></div>
                                         </div>
-                                        @empty
-                                            <p>No items found</p>
-
-                                    @endforelse
+                                    @endforeach
 
                                 </div>
 

@@ -146,7 +146,13 @@
                                                              alt="">
                                                     </a>
                                                 </div>
-                                                <div class="favorite favorite_left"></div>
+                                              <a href="{!! url('add_to_wish_list/'.$product->id); !!}">
+                                                    <div class="favorite favorite_left">
+
+
+
+                                                    </div>
+                                                </a>
                                                 @if ($product->type_id == 2)
                                                     <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
                                                         <span>-${{$product->price *($product->discount/100)}}</span>
@@ -234,7 +240,7 @@
                                              alt="">
                                     </a>
                                 </div>
-                                <div class="favorite favorite_left"></div>
+
                                 @if ($product->type_id == 2)
                                     <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
                                         <span>-${{$product->price *($product->discount/100)}}</span>

@@ -34,19 +34,6 @@ class OrderController extends Controller {
 		}
 
 
-		$wish_list_ = Order::where( 'user_id', 1 )
-		                   ->where( 'order_type_id', 2 )
-		                   ->get();
-
-		$wish_list_products = collect();
-
-		// get all products
-		foreach ( $wish_list_ as $order ) {
-			$products_collection = $order->products()->get();
-			$wish_list_products->push( $products_collection );
-		}
-
-//		dd( $wish_list_products );
 
 
 		$total_price = 0;
@@ -62,13 +49,34 @@ class OrderController extends Controller {
 
 		}
 
-		// if  products view cart
-		if ( count( $products ) ) {
-			return view( 'cart.index', compact( 'products', 'total_price', 'wish_list_products', 'categories' ) );
-		} else {
 
-			return redirect()->route( 'products.index' );
+
+		$wish_list_ = Order::where( 'user_id', 1 )
+		                   ->where( 'order_type_id', 2 )
+		                   ->get();
+
+		$wish_list_products = collect();
+
+		// get all products
+		foreach ( $wish_list_ as $order ) {
+			$products_collection = $order->products()->get();
+			if (count($products_collection)){
+				$wish_list_products->push( $products_collection );
+			}
+
 		}
+
+//	dd( $wish_list_products );
+
+		return view( 'cart.index', compact( 'products', 'total_price', 'wish_list_products', 'categories' ) );
+//
+//		// if  products view cart
+//		if ( count( $products ) ) {
+//			return view( 'cart.index', compact( 'products', 'total_price', 'wish_list_products', 'categories' ) );
+//		} else {
+//
+//			return redirect()->route( 'products.index' );
+//		}
 
 	}
 

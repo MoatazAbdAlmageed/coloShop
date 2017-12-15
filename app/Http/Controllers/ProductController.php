@@ -18,11 +18,15 @@ class ProductController extends Controller {
 	 */
 	public function index() {
 		$categories = Category::all();
-		$products   = DB::table( 'products' )
-		                ->leftjoin( 'orders', 'orders.product_id', '=', 'products.id' )
-		                ->select( 'products.*' )
-		                ->where( 'orders.product_id', null )
-		                ->get();
+
+
+		$products = DB::table( 'products' )
+		              ->leftjoin( 'orders', 'orders.product_id', '=', 'products.id' )
+		              ->select( 'products.*' )
+		              ->where( 'orders.product_id', null )
+		              ->get();
+
+//		$products = Product::all();
 
 		return view( 'products.index', compact( 'products', 'categories' ) );
 	}
@@ -140,18 +144,26 @@ class ProductController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function add_to_cart( $id ) {
-//		dd($id);
-		$order = new Order( [
-			'user_id'       => 1,
-			'product_id'    => $id,
-			'order_type_id' => 1,
+//	$order = Order::where('product_id', '=', $id)->first();
+//		$order->order_type_id = 1;
+//		$order->save();
+//
 
-		] );
+
+		$order = Order::where('product_id', '=', $id)->first();
+		if ($order){
+			$order->order_type_id = 1;
+		}
+		else   {
+			$order = new Order();
+			$order->product_id =$id;
+			$order->order_type_id = 1;
+			$order->user_id = 1;
+
+		}
 
 		$order->save();
-
-		return redirect()->route( 'products.index' );
-
+		return redirect()->route( 'orders.index' );
 
 	}
 
@@ -163,28 +175,21 @@ class ProductController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function add_to_wish_list( $id ) {
+		$order = Order::where('product_id', '=', $id)->first();
+		if ($order){
+		$order->order_type_id = 2;
 
+		}
+		else   {
+			$order = new Order();
+			$order->product_id =$id;
+			$order->order_type_id = 2;
+			$order->user_id = 1;
 
-//		dd($id);
-		$order = new Order( [
-			'user_id'       => 1,
-			'product_id'    => $id,
-			'order_type_id' => 2,
-
-		] );
+		}
 
 		$order->save();
-
-
-//		remove from Order
-
-		$order = Order::where( 'product_id', $id )->get();
-
-		Order::destroy( $order[0]->id );
-
-		return redirect()->route( 'products.index' );
-
-
+		return redirect()->route( 'orders.index' );
 	}
 
 

@@ -111,7 +111,18 @@ class ProductController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function add_to_cart( $id ) {
-		dd($id);
+	$order = new Order([
+		'user_id'=>1,
+		'product_id'=>$id,
+		'order_type_id'=>1,
+
+	]);
+
+		$order->save();
+
+		return redirect()->route('products.index');
+
+
 	}
 
 

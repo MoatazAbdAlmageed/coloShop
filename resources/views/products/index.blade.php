@@ -171,7 +171,7 @@
 
                                                 </div>
                                             </div>
-                                            <div class="red_button add_to_cart_button"><a href={!! url('orders/create/'.$product->id); !!}>add to cart</a></div>
+                                            <div class="red_button add_to_cart_button"><a href={!! url('/add_to_cart/'.$product->id); !!}>add to cart</a></div>
                                         </div>
                                     @endforeach
 

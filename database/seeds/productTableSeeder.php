@@ -76,6 +76,22 @@ class productTableSeeder extends Seeder {
 
 
 
+		$product = new \App\Product(
+			[
+				'id'          => null,
+				'title'       => 'Jacket',
+				'description' =>  'Zaful  Fashionable Basic Jacket ',
+				'price'       => 500,
+				'picture'     => 'single_3_thumb.jpg',
+				'color'       => '',
+				'InStock'     => 1,
+				'category_id' => 1,
+				'type_id'     => 2,
+				'discount'    => 10,
+			]
+		);
+		$product->save();
+
 
 	}
 }

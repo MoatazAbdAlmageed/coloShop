@@ -3,14 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Product;
 use App\Category;
-use DB;
-class ProductController extends Controller
+use App\Order;
+
+class OrderController extends Controller
 {
 
 
-	/**
+
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -18,9 +20,8 @@ class ProductController extends Controller
     public function index()
     {
 	    $categories = Category::all();
-	    $products = Product::all();
-
-	    return view('products.index',compact('products','categories'));
+	    $orders = Order::all();
+	    return view('orders.index',compact('orders','categories'));
     }
 
     /**
@@ -30,7 +31,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-	    return view('products.create');
+        //
     }
 
     /**
@@ -52,24 +53,8 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-	    $categories = Category::all();
-	    $category = Category::find($id);
-	    $products = $category->products->all();
-	    $products = $category->products;
-	    return view('products.single',compact('products','categories'));
+        //
     }
-
-	public function category($slug)
-	{
-		$categories = Category::all();
-dd($categories);
-		/* get cat_id */
-		$cat = Category::where('slug',$slug)->first();
-
-		$products = Product::where('category_id',$cat->id)->get();
-
-		return view('products.index',compact('products','categories'));
-	}
 
     /**
      * Show the form for editing the specified resource.

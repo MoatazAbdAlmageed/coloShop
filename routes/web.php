@@ -15,9 +15,10 @@ Route::get('/', function () {
 	return view('home');
 });
 Route::get('users','UserController@index');
+
+
+
 Route::resource('products','ProductController');
-//Route::get('products/{slug}','ProductController@category');
-
-
+Route::resource('orders','OrderController');
 Route::resource('categories','CategoryController');
 Route::resource('types','TypeController');

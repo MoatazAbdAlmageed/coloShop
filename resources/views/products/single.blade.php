@@ -19,23 +19,10 @@
 
         <div class="row">
             <div class="col-lg-7">
-                <div class="single_product_pics">
-                    <div class="row">
-                        <div class="col-lg-3 thumbnails_col order-lg-1 order-2">
-                            <div class="single_product_thumbnails">
-                                <ul>
-                                    <li><img src="images/single_1_thumb.jpg" alt="" data-image="images/single_1.jpg"></li>
-                                    <li class="active"><img src="images/single_2_thumb.jpg" alt="" data-image="images/single_2.jpg"></li>
-                                    <li><img src="images/single_3_thumb.jpg" alt="" data-image="images/single_3.jpg"></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-9 image_col order-lg-2 order-1">
-                            <div class="single_product_image">
-                                <div class="single_product_image_background" style="background-image:url(images/single_2.jpg)"></div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="product_image">
+                    <a href={!! url('/products/'.$product->id); !!}>
+                        <img src="{!! asset('images/products/'.$product->picture) !!}" alt="">
+                    </a>
                 </div>
             </div>
             <div class="col-lg-5">
@@ -47,8 +34,12 @@
                     <div class="free_delivery d-flex flex-row align-items-center justify-content-center">
                         <span class="ti-truck"></span><span>free delivery</span>
                     </div>
-                    <div class="original_price">$629.99</div>
-                    <div class="product_price">$495.00</div>
+                    @if ($product->type_id == 2)
+                    <div class="original_price">${{$product->price}}</div>
+                    <div class="product_price">${{$product->price - ($product->price *($product->discount/100))}}</div>
+                    @else
+                        <div class="product_price">${{$product->price }}</div>
+                        @endif
                     <ul class="star_rating">
                         <li><i class="fa fa-star" aria-hidden="true"></i></li>
                         <li><i class="fa fa-star" aria-hidden="true"></i></li>

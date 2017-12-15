@@ -6,13 +6,7 @@
 
                 <!-- Breadcrumbs -->
 
-                <div class="breadcrumbs d-flex flex-row align-items-center">
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li class="active"><a href="index.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Men's</a>
-                        </li>
-                    </ul>
-                </div>
+
 
                 <!-- Sidebar -->
 
@@ -179,6 +173,10 @@
 
                                 </div>
 
+
+
+
+
                                 <!-- Product Sorting -->
 
                                 {{--<div class="product_sorting_container product_sorting_container_bottom clearfix">--}}
@@ -219,6 +217,22 @@
             </div>
         </div>
     </div>
+<div class="container">
+    <div class="row">
+<div class="col-lg-3">
+
+    <h2> Total : {{ $total_price }}</h2>
+</div>
+
+<div class="col-lg-9">
+    <button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_300 pull-right checkout_button"
+            value="Submit">Continue to Checkout
+    </button>
+
+</div>
+
+    </div>
+</div>
     <!-- Benefit -->
     <div class="benefit">
         <div class="container">

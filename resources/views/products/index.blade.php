@@ -141,7 +141,7 @@
 
                                 <div class="product-grid">
 
-                                    @foreach($products as $product)
+                                    @forelse($products as $product)
 
                                         <div class="product-item men">
                                             <div class="product discount product_filter">
@@ -171,9 +171,12 @@
 
                                                 </div>
                                             </div>
-                                            <div class="red_button add_to_cart_button"><a href={!! url('/add_to_cart/'.$product->id); !!}>add to cart</a></div>
+                                            <div class="red_button add_to_cart_button"><a href={!! url('add_to_cart/'.$product->id); !!}>add to cart</a></div>
                                         </div>
-                                    @endforeach
+@empty
+                                        <p>No Products found</p>
+
+                                    @endforelse
 
                                 </div>
 

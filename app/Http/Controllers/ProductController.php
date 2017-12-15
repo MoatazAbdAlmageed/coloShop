@@ -18,8 +18,11 @@ class ProductController extends Controller {
 	 */
 	public function index() {
 		$categories = Category::all();
-		$products   = Product::all();
-
+		$products = 	DB::table('products')
+			->leftjoin('orders', 'orders.product_id', '=', 'products.id')
+			->select('products.*')
+			->where('orders.product_id',null)
+			->get();
 		return view( 'products.index', compact( 'products', 'categories' ) );
 	}
 
@@ -111,6 +114,7 @@ class ProductController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function add_to_cart( $id ) {
+//		dd($id);
 		$order = new Order( [
 			'user_id'       => 1,
 			'product_id'    => $id,
@@ -139,7 +143,7 @@ class ProductController extends Controller {
 		     ->delete();
 
 
-		return redirect()->route( 'products.index' );
+		return redirect()->route( 'orders.index' );
 
 
 	}

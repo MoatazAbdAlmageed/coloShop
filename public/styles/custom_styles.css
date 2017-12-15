@@ -4,3 +4,10 @@
 .language_selection {
     width: 200px !important;
 }
+
+
+.checkout_button {
+    width: 230px !important;
+    background: #28a745 !important;
+
+}

@@ -16,7 +16,8 @@ class CategoryController extends Controller
     public function index()
     {
 	    $categories = Category::all();
-//	    $products = Product::all();
+   $products = Product::all();
+   dd($products);
 	    return view('categories.index',compact('products','categories'));
 
     }
@@ -52,18 +53,9 @@ class CategoryController extends Controller
     {
 	    $categories = Category::all();
 	    $category = Category::find($id);
-//  dd($category->products);
-
-
-
 	    $products = $category->products->all();
-
-//	    foreach ($products as $product) {
-//		    dd($product);
-//	    }
-
-
-	    return view('categories.index',compact('products','categories'));
+	    $products = $category->products;
+	    return view('categories.single',compact('products','categories'));
 
     }
 

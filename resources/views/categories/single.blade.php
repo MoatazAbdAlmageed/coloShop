@@ -32,54 +32,6 @@
                         </ul>
                     </div>
 
-                    {{--<!-- Price Range Filtering -->--}}
-                    {{--<div class="sidebar_section">--}}
-                    {{--<div class="sidebar_title">--}}
-                    {{--<h5>Filter by Price</h5>--}}
-                    {{--</div>--}}
-                    {{--<p>--}}
-                    {{--<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">--}}
-                    {{--</p>--}}
-                    {{--<div id="slider-range"></div>--}}
-                    {{--<div class="filter_button"><span>filter</span></div>--}}
-                    {{--</div>--}}
-
-                    {{--<!-- Sizes -->--}}
-                    {{--<div class="sidebar_section">--}}
-                    {{--<div class="sidebar_title">--}}
-                    {{--<h5>Sizes</h5>--}}
-                    {{--</div>--}}
-                    {{--<ul class="checkboxes">--}}
-                    {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>S</span></li>--}}
-                    {{--<li class="active"><i class="fa fa-square" aria-hidden="true"></i><span>M</span></li>--}}
-                    {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>L</span></li>--}}
-                    {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>XL</span></li>--}}
-                    {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>XXL</span></li>--}}
-                    {{--</ul>--}}
-                    {{--</div>--}}
-
-                    {{--<!-- Color -->--}}
-                    {{--<div class="sidebar_section">--}}
-                    {{--<div class="sidebar_title">--}}
-                    {{--<h5>Color</h5>--}}
-                    {{--</div>--}}
-                    {{--<ul class="checkboxes">--}}
-                    {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>Black</span></li>--}}
-                    {{--<li class="active"><i class="fa fa-square" aria-hidden="true"></i><span>Pink</span></li>--}}
-                    {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>White</span></li>--}}
-                    {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>Blue</span></li>--}}
-                    {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>Orange</span></li>--}}
-                    {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>White</span></li>--}}
-                    {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>Blue</span></li>--}}
-                    {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>Orange</span></li>--}}
-                    {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>White</span></li>--}}
-                    {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>Blue</span></li>--}}
-                    {{--<li><i class="fa fa-square-o" aria-hidden="true"></i><span>Orange</span></li>--}}
-                    {{--</ul>--}}
-                    {{--<div class="show_more">--}}
-                    {{--<span><span>+</span>Show More</span>--}}
-                    {{--</div>--}}
-                    {{--</div>--}}
 
                 </div>
 
@@ -140,29 +92,39 @@
                                 <!-- Product Grid -->
 
                                 <div class="product-grid">
-
-                                    @foreach($products as $product)
+                                    @forelse($products as $product)
 
                                         <div class="product-item men">
                                             <div class="product discount product_filter">
                                                 <div class="product_image">
                                                     <a href={!! url('/products/'.$product->id); !!}>
-                                                        <img src="{!! asset('images/products/'.$product->picture) !!}" alt="">
+                                                        <img src="{!! asset('images/products/'.$product->picture) !!}"
+                                                             alt="">
                                                     </a>
                                                 </div>
-                                                <div class="favorite favorite_left"></div>
+                                                <a href="{!! url('add_to_wish_list/'.$product->id); !!}">
+                                                    <div class="favorite favorite_left">
+
+
+
+                                                    </div>
+                                                </a>
                                                 @if ($product->type_id == 2)
                                                     <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                                                        <span>-${{$product->price *($product->discount/100)}}</span></div>
+                                                        <span>-${{$product->price *($product->discount/100)}}</span>
+                                                    </div>
                                                 @endif
                                                 <div class="product_info">
-                                                    <h6 class="product_name"><a href={!! url('/products/'.$product->id); !!}>{{$product->title}}</a></h6>
+                                                    <h6 class="product_name"><a
+                                                                href={!! url('/products/'.$product->id); !!}>{{$product->title}}</a>
+                                                    </h6>
                                                     @if ($product->type_id == 2)
                                                         @php
                                                             $price = $product->price - ($product->price *($product->discount/100));
                                                         @endphp
 
-                                                        <div class="product_price">{{ $price  }}<span>{{$product->price}}</span></div>
+                                                        <div class="product_price">{{ $price  }}
+                                                            <span>{{$product->price}}</span></div>
 
                                                     @else
                                                         <div class="product_price">{{ $product->price  }}</div>
@@ -171,9 +133,14 @@
 
                                                 </div>
                                             </div>
-                                            <div class="red_button add_to_cart_button"><a href={!! url('/'); !!}>add to cart</a></div>
+                                            <div class="red_button add_to_cart_button"><a
+                                                        href={!! url('add_to_cart/'.$product->id); !!}>add to cart</a>
+                                            </div>
                                         </div>
-                                    @endforeach
+                                    @empty
+                                        <p>No Products found</p>
+
+                                    @endforelse
 
                                 </div>
 

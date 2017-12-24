@@ -8,14 +8,14 @@ class CreateTypesTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     *`
      * @return void
      */
     public function up()
     {
         Schema::create('types', function (Blueprint $table) {
             $table->increments('id');
-	        $table->string('title');
+	        $table->string('title'); // todo make this unique
 	        $table->text('description');
             $table->timestamps();
         });

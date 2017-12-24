@@ -61,12 +61,13 @@
                                 {{--</li>--}}
                                 <li class="language">
                                     <a href={!! url('/'); !!}>
-                                        Manage
+                                        Products
                                         <i class="fa fa-angle-down"></i>
                                     </a>
                                     <ul class="language_selection">
-                                     <li>   <a href={!! url('/types/create	'); !!}>Add Product Type </a></li>
-                                     <li>   <a href={!! url('/products/create	'); !!}>Add Product </a></li>
+                                     {{--<li>   <a href={!! url('/types/create	'); !!}>Add Product Type </a></li>--}}
+                                     <li>   <a href={!! url('/products/create	'); !!}>New</a></li>
+                                        <li>   <a href={!! url('/products	'); !!}>List </a></li>
                                     </ul>
                                 </li>
                                 <li class="account">

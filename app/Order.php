@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
 
-
-
 	public $fillable = [
 	'user_id',
 	'product_id',

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Order;
 use App\Product;
+use App\Type;
 use DB;
 use Illuminate\Http\Request;
 
@@ -37,7 +38,9 @@ class ProductController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function create() {
-		return view( 'products.create' );
+		$types = Type::all(['id','title']);
+
+		return view( 'products.create',compact('types') );
 	}
 
 	/**
@@ -144,24 +147,20 @@ class ProductController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function add_to_cart( $id ) {
-//	$order = Order::where('product_id', '=', $id)->first();
-//		$order->order_type_id = 1;
-//		$order->save();
-//
-
-
 		$order = Order::where('product_id', '=', $id)->first();
+
 		if ($order){
 			$order->order_type_id = 1;
+
 		}
 		else   {
-			$order = new Order();
-			$order->product_id =$id;
-			$order->order_type_id = 1;
-			$order->user_id = 1;
+			$order = new Order;
+			$order->product_id = $id;
+			$order->order_type_id = 1; //cart type
+			$order->user_id = 1; //default
 
 		}
-
+//dd($order);
 		$order->save();
 		return redirect()->route( 'orders.index' );
 

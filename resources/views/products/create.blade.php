@@ -11,15 +11,11 @@
             </div>
 
 
-
-
             <div class="form-group {{ $errors->has('description') ? 'has-error' : '' }}">
                 {!! Form::label('description:') !!}
                 {!! Form::textarea('description', old('description'), ['class'=>'form-control', 'placeholder'=>'Enter description']) !!}
                 <span class="text-danger">{{ $errors->first('description') }}</span>
             </div>
-
-
 
 
             <div class="form-group {{ $errors->has('price') ? 'has-error' : '' }}">
@@ -29,13 +25,12 @@
             </div>
 
 
-
             <div class="form-group {{ $errors->has('color') ? 'has-error' : '' }}">
                 {!! Form::label('color:') !!}
                 {!! Form::text('color', old('color'), ['class'=>'form-control', 'placeholder'=>'Enter color']) !!}
                 <span class="text-danger">{{ $errors->first('color') }}</span>
             </div>
-            
+
 
             <div class="form-group {{ $errors->has('picture') ? 'has-error' : '' }}">
                 {!! Form::label('picture:') !!}
@@ -44,22 +39,23 @@
             </div>
 
 
-
-
             <div class="form-group {{ $errors->has('type') ? 'has-error' : '' }}">
                 {!! Form::label('Product Type:') !!}
-                {{ Form::select('type_id', ['1', '2', '3']) }}
+                {{--{{ Form::select('type_id',$types) }}--}}
+                <select class="form-control" name="type_id" id="type_id">
+
+                    @foreach($types as $type)
+                        <option value="{{$type->id}}"> {{$type->title}}</option>
+                    @endforeach
+                </select>
                 <span class="text-danger">{{ $errors->first('type_id') }}</span>
             </div>
-
 
             <div class="form-group {{ $errors->has('picture') ? 'has-error' : '' }}">
                 {!! Form::label('InStock:') !!}
                 {{ Form::checkbox('InStock', 1, true) }}
                 <span class="text-danger">{{ $errors->first('InStock') }}</span>
             </div>
-
-
 
 
             <div class="form-group">

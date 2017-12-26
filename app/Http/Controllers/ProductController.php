@@ -206,7 +206,7 @@ class ProductController extends Controller {
 
 		$order->save();
 
-		return redirect()->route( 'orders.index' );
+		return redirect()->route( 'products.index' );
 	}
 
 

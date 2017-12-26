@@ -25,11 +25,29 @@ class ProductController extends Controller {
 		              ->leftjoin( 'orders', 'orders.product_id', '=', 'products.id' )
 		              ->select( 'products.*' )
 		              ->where( 'orders.product_id', null )
+		              ->where( 'inStock', 1 )
 		              ->get();
+
 
 //		$products = Product::all();
 
 		return view( 'products.index', compact( 'products', 'categories' ) );
+	}
+
+
+	public function manage() {
+		$categories = Category::all();
+
+
+		$products = DB::table( 'products' )
+		              ->leftjoin( 'orders', 'orders.product_id', '=', 'products.id' )
+		              ->select( 'products.*' )
+//		              ->where( 'orders.product_id', null )
+//		              ->where( 'inStock', 1 )
+		              ->get();
+
+
+	return view( 'products.manage', compact( 'products', 'categories' ) );
 	}
 
 	/**
@@ -38,9 +56,9 @@ class ProductController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function create() {
-		$types = Type::all(['id','title']);
 
-		return view( 'products.create',compact('types') );
+
+		return view( 'products.create' );
 	}
 
 	/**
@@ -70,7 +88,7 @@ class ProductController extends Controller {
 		$product->picture     = $request->picture;
 		$product->color       = $request->color;
 		$product->category_id = 1; //todo
-		$product->type_id     = $request->type_id;
+		$product->type        = $request->type;
 		$product->discount    = 0;
 		$product->InStock     = $request->InStock;
 		$product->save();
@@ -147,22 +165,22 @@ class ProductController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function add_to_cart( $id ) {
-		$order = Order::where('product_id', '=', $id)->first();
+		$order = Order::where( 'product_id', '=', $id )->first();
 
-		if ($order){
-			$order->order_type_id = 1;
+		if ( $order ) {
+			$order->list = "Shopping";
 
-		}
-		else   {
-			$order = new Order;
+		} else {
+			$order             = new Order;
 			$order->product_id = $id;
-			$order->order_type_id = 1; //cart type
-			$order->user_id = 1; //default
+			$order->list       = "Shopping";
+			$order->user_id    = 1; //default
 
 		}
 //dd($order);
 		$order->save();
-		return redirect()->route( 'orders.index' );
+
+		return redirect()->route( 'products.index' );
 
 	}
 
@@ -174,20 +192,20 @@ class ProductController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function add_to_wish_list( $id ) {
-		$order = Order::where('product_id', '=', $id)->first();
-		if ($order){
-		$order->order_type_id = 2;
+		$order = Order::where( 'product_id', '=', $id )->first();
+		if ( $order ) {
+			$order->list = "Wish";
 
-		}
-		else   {
-			$order = new Order();
-			$order->product_id =$id;
-			$order->order_type_id = 2;
-			$order->user_id = 1;
+		} else {
+			$order             = new Order();
+			$order->product_id = $id;
+			$order->list       = "Wish";
+			$order->user_id    = 1;
 
 		}
 
 		$order->save();
+
 		return redirect()->route( 'orders.index' );
 	}
 

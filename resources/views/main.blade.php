@@ -41,49 +41,7 @@
                     <div class="col-md-6">
                         <div class="top_nav_left">free shipping on all u.s orders over $50</div>
                     </div>
-                    <div class="col-md-6 text-right">
-                        <div class="top_nav_right">
-                            <ul class="top_nav_menu">
 
-                                <!-- Currency / Language / My Account -->
-
-                                {{--<li class="currency">--}}
-                                    {{--<a href={!! url('/'); !!}>--}}
-                                        {{--usd--}}
-                                        {{--<i class="fa fa-angle-down"></i>--}}
-                                    {{--</a>--}}
-                                    {{--<ul class="currency_selection">--}}
-                                        {{--<li><a href={!! url('/'); !!}>cad</a></li>--}}
-                                        {{--<li><a href={!! url('/'); !!}>aud</a></li>--}}
-                                        {{--<li><a href={!! url('/'); !!}>eur</a></li>--}}
-                                        {{--<li><a href={!! url('/'); !!}>gbp</a></li>--}}
-                                    {{--</ul>--}}
-                                {{--</li>--}}
-                                <li class="language">
-                                    <a href={!! url('/'); !!}>
-                                        Products
-                                        <i class="fa fa-angle-down"></i>
-                                    </a>
-                                    <ul class="language_selection">
-                                     {{--<li>   <a href={!! url('/types/create	'); !!}>Add Product Type </a></li>--}}
-                                     <li>   <a href={!! url('/products/create	'); !!}>New</a></li>
-                                        <li>   <a href={!! url('/products	'); !!}>List </a></li>
-                                    </ul>
-                                </li>
-                                <li class="account">
-                                    <a href={!! url('/'); !!}>
-                                        My Account
-                                        <i class="fa fa-angle-down"></i>
-                                    </a>
-                                    <ul class="account_selection">
-                                        <li><a href={!! url('/'); !!}><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
-                                        <li><a href={!! url('/'); !!}><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -99,7 +57,10 @@
                         </div>
                         <nav class="navbar">
                             <ul class="navbar_menu">
+
                                 <li><a href="{!! url('/products'); !!}">Products</a></li>
+                                <li><a href="{!! url('/products/create'); !!}">New</a></li>
+                                <li><a href="{!! url('/products_manage'); !!}">Manage</a></li>
                                 {{--<li><a href="{!! url('/orders'); !!}">Orders</a></li>--}}
 
 
@@ -129,54 +90,6 @@
 
     </header>
 
-    {{--<div class="fs_menu_overlay"></div>--}}
-    {{--<div class="hamburger_menu">--}}
-        {{--<div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>--}}
-        {{--<div class="hamburger_menu_content text-right">--}}
-            {{--<ul class="menu_top_nav">--}}
-                {{--<li class="menu_item has-children">--}}
-                    {{--<a href={!! url('/'); !!}>--}}
-                        {{--usd--}}
-                        {{--<i class="fa fa-angle-down"></i>--}}
-                    {{--</a>--}}
-                    {{--<ul class="menu_selection">--}}
-                        {{--<li><a href={!! url('/'); !!}>cad</a></li>--}}
-                        {{--<li><a href={!! url('/'); !!}>aud</a></li>--}}
-                        {{--<li><a href={!! url('/'); !!}>eur</a></li>--}}
-                        {{--<li><a href={!! url('/'); !!}>gbp</a></li>--}}
-                    {{--</ul>--}}
-                {{--</li>--}}
-                {{--<li class="menu_item has-children">--}}
-
-                    {{--<a href={!! url('/products/create	'); !!}>Add Product   <i class="fa fa-angle-down"></i></a>--}}
-
-
-                    {{--<ul class="menu_selection">--}}
-                        {{--<li><a href={!! url('/'); !!}>French</a></li>--}}
-                        {{--<li><a href={!! url('/'); !!}>Italian</a></li>--}}
-                        {{--<li><a href={!! url('/'); !!}>German</a></li>--}}
-                        {{--<li><a href={!! url('/'); !!}>Spanish</a></li>--}}
-                    {{--</ul>--}}
-                {{--</li>--}}
-                {{--<li class="menu_item has-children">--}}
-                    {{--<a href={!! url('/'); !!}>--}}
-                        {{--My Account--}}
-                        {{--<i class="fa fa-angle-down"></i>--}}
-                    {{--</a>--}}
-                    {{--<ul class="menu_selection">--}}
-                        {{--<li><a href={!! url('/'); !!}><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>--}}
-                        {{--<li><a href={!! url('/'); !!}><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>--}}
-                    {{--</ul>--}}
-                {{--</li>--}}
-                {{--<li class="menu_item"><a href={!! url('/'); !!}>home</a></li>--}}
-                {{--<li class="menu_item"><a href={!! url('/'); !!}>shop</a></li>--}}
-                {{--<li class="menu_item"><a href={!! url('/'); !!}>promotion</a></li>--}}
-                {{--<li class="menu_item"><a href={!! url('/'); !!}>pages</a></li>--}}
-                {{--<li class="menu_item"><a href={!! url('/'); !!}>blog</a></li>--}}
-                {{--<li class="menu_item"><a href={!! url('/'); !!}>contact</a></li>--}}
-            {{--</ul>--}}
-        {{--</div>--}}
-    {{--</div>--}}
 
 <div id="content">
 @section('content')

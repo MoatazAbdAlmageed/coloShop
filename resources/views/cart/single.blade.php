@@ -151,13 +151,13 @@
                                                     </a>
                                                 </div>
                                                 <div class="favorite favorite_left"></div>
-                                                @if ($product->type_id == 2)
+                                               @if ($product->type =='Sale')
                                                     <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
                                                         <span>-${{$product->price *($product->discount/100)}}</span></div>
                                                 @endif
                                                 <div class="product_info">
                                                     <h6 class="product_name"><a href={!! url('/products/'.$product->id); !!}>{{$product->title}}</a></h6>
-                                                    @if ($product->type_id == 2)
+                                                   @if ($product->type =='Sale')
                                                         @php
                                                             $price = $product->price - ($product->price *($product->discount/100));
                                                         @endphp

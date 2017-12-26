@@ -27,7 +27,7 @@ class productTableSeeder extends Seeder {
 				'color'       => '',
 				'InStock'     => 1,
 				'category_id' => 3,
-				'type_id'     => 1,
+				'type'     => 'Normal',
 				'discount'    => 0,
 			]
 		);
@@ -46,7 +46,7 @@ class productTableSeeder extends Seeder {
 				'color'       => '',
 				'InStock'     => 1,
 				'category_id' => 4,
-				'type_id'     => 1,
+				'type'     => 'Normal',
 				'discount'    => 10,
 			]
 		);
@@ -68,7 +68,7 @@ class productTableSeeder extends Seeder {
 				'color'       => '',
 				'InStock'     => 1,
 				'category_id' => 2,
-				'type_id'     => 2,
+				'type'     => 'Normal',
 				'discount'    => 10,
 			]
 		);
@@ -86,7 +86,7 @@ class productTableSeeder extends Seeder {
 				'color'       => '',
 				'InStock'     => 1,
 				'category_id' => 1,
-				'type_id'     => 2,
+				'type'     => 'Sale',
 				'discount'    => 10,
 			]
 		);

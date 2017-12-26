@@ -34,19 +34,21 @@
 
             <div class="form-group {{ $errors->has('picture') ? 'has-error' : '' }}">
                 {!! Form::label('picture:') !!}
-                {!! Form::text('picture', old('picture'), ['class'=>'form-control', 'placeholder'=>'Enter picture']) !!}
+                {!! Form::text('picture', old('picture'), ['class'=>'form-control',  'placeholder'=>'Enter picture']) !!}
                 <span class="text-danger">{{ $errors->first('picture') }}</span>
             </div>
 
 
             <div class="form-group {{ $errors->has('type') ? 'has-error' : '' }}">
                 {!! Form::label('Product Type:') !!}
-                {{--{{ Form::select('type_id',$types) }}--}}
-                <select class="form-control" name="type_id" id="type_id">
 
-                    @foreach($types as $type)
-                        <option value="{{$type->id}}"> {{$type->title}}</option>
-                    @endforeach
+                <select class="form-control" name="type" id="type">
+
+
+                        <option value="Normal"> Normal</option>
+                        <option value="Sale"> Sale</option>
+
+
                 </select>
                 <span class="text-danger">{{ $errors->first('type_id') }}</span>
             </div>

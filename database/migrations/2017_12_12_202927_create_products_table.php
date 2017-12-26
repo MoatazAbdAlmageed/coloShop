@@ -23,7 +23,8 @@ class CreateProductsTable extends Migration
 	        $table->boolean('InStock')->default(true);
 			// Relation
 	        $table->integer('category_id')->nullable();;
-	        $table->integer('type_id');
+//	        $table->integer('type_id');
+	        $table->enum('type', ['Normal', 'Sale']);
 
 	        //timestamps
 	        $table->timestamps();

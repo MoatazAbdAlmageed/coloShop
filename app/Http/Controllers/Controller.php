@@ -17,7 +17,7 @@ class Controller extends BaseController {
 
 	public function __construct() {
 
-		$orders_count = Order::where( 'order_type_id', 1 )->get()->count();
+		$orders_count = Order::where( 'list', 'Shopping' )->get()->count();
 		$categories = Category::all();
 		$products = Product::all();
 

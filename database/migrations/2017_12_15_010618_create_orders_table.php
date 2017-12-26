@@ -17,7 +17,8 @@ class CreateOrdersTable extends Migration
             $table->increments('id');
 	        $table->integer('user_id');
 	        $table->integer('product_id');
-	        $table->integer('order_type_id'); // cart , wishlist , ...
+//	        $table->integer('order_type_id'); // cart , wishlist , ...
+	        $table->enum('list', ['Shopping', 'Wish']);
             $table->timestamps();
         });
     }

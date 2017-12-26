@@ -34,7 +34,7 @@
                     <div class="free_delivery d-flex flex-row align-items-center justify-content-center">
                         <span class="ti-truck"></span><span>free delivery</span>
                     </div>
-                    @if ($product->type_id == 2)
+                   @if ($product->type =='Sale')
                     <div class="original_price">${{$product->price}}</div>
                     <div class="product_price">${{$product->price - ($product->price *($product->discount/100))}}</div>
                     @else

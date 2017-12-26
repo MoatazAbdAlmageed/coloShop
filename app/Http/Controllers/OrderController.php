@@ -21,7 +21,7 @@ class OrderController extends Controller {
 
 		// get current user orders where it's type = cart (1)
 		$orders = Order::where( 'user_id', 1 )
-		               ->where( 'order_type_id', 1 )
+		               ->where( 'list', "Shopping")
 		               ->get();
 
 
@@ -40,7 +40,7 @@ class OrderController extends Controller {
 
 		foreach ( $products as $product ) {
 			$product = $product[0];
-			if ( $product->type_id == 2 ) {
+			if ( $product->type == "Sale" ) {
 				$total_price += $product->price - ( $product->price * ( $product->discount / 100 ) );
 			} else {
 
@@ -52,7 +52,7 @@ class OrderController extends Controller {
 
 
 		$wish_list_ = Order::where( 'user_id', 1 )
-		                   ->where( 'order_type_id', 2 )
+		                   ->where( 'list', "Wish" )
 		                   ->get();
 
 		$wish_list_products = collect();

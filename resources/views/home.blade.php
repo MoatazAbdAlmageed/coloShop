@@ -4,7 +4,7 @@
 @section('content')
     <!-- Slider -->
 
-    <div class="main_slider" style="background-image:url(images/slider_1.jpg)">
+    <div class="main_slider" >
         <div class="container fill_height">
             <div class="row align-items-center fill_height">
                 <div class="col">

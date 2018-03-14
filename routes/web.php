@@ -35,3 +35,16 @@ Route::get('empty_cart','OrderController@empty_cart');
 
 
 
+
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => 'auth'], function () {
+
+
+	// Admin Roles Routes...
+	Route::get('products/create', 'ProductController@create');
+	Route::get('products_manage', 'ProductController@manage');
+
+});
+
+Route::auth();
